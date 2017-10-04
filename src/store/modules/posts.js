@@ -1,21 +1,36 @@
+import { isEmpty } from 'lodash';
+
 import PostService from '../../services/PostService';
 import * as types from '../mutation-types';
 
 // initial state
 const state = {
   items: [],
+  item: {},
 };
 
 // getters
 const getters = {
   allPosts: state => state.items,
+  currentPost: state => state.item,
+  limitedPosts: state => state.items.slice(0, 5),
 };
 
 // actions
 const actions = {
   getAllPosts({ commit }) {
-    PostService.getAll().then(posts => {
+    if (!isEmpty(state.items)) {
+      return state.items;
+    }
+
+    return PostService.getAll().then(posts => {
       commit(types.FETCH_POSTS, { posts });
+    });
+  },
+
+  getPost({ commit }, slug) {
+    return PostService.get(slug).then(post => {
+      commit(types.FETCH_POST, { post });
     });
   },
 };
@@ -24,6 +39,10 @@ const actions = {
 const mutations = {
   [types.FETCH_POSTS](state, { posts }) {
     state.items = posts;
+  },
+
+  [types.FETCH_POST](state, { post }) {
+    state.item = post;
   },
 };
 

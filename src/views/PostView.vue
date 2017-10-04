@@ -11,25 +11,25 @@
     </div>
 
     <!-- Main -->
-    <div class="pt5 indent center mw-85" v-if="item.content">
+    <div class="pt5 indent center mw-85" v-if="currentPost.content">
       <div class="Row">
         <div class="ColumnSeventy">
           <article class="BlogPostSingle">
-            <figure class="BlogPostSingle__images" v-if="item">
-              <img :src="item.source_url">
+            <figure class="BlogPostSingle__images" v-if="currentPost">
+              <img :src="currentPost.source_url">
             </figure>
             <header class="BlogPostSingle__header">
-              <h1>{{ item.title }}</h1>
+              <h1>{{ currentPost.title }}</h1>
             </header>
             <aside class="BlogPostSingle__content">
-              <div v-html="item.content"></div>
+              <div v-html="currentPost.content"></div>
             </aside>
           </article>
         </div>
         <div class="ColumnQuarter">
           <aside class="SidebarItem">
             <header class="SidebarItem__header">
-              <h3>Latest Posts</h3>
+              <h3>My Work</h3>
             </header>
             <ul>
               <li v-for="post in limitedPosts" v-bind:key="post.slug">
@@ -48,21 +48,18 @@
 
 <script>
 
-import PostService from '../services/PostService'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
 
   data() {
     return {
-      item: [],
-      posts: [],
       error: false
     }
   },
 
   created() {
     this.fetchItem()
-    this.fetchPosts()
   },
 
   watch: {
@@ -70,26 +67,15 @@ export default {
   },
 
   computed: {
-    limitedPosts() {
-      return this.posts.splice(0, 5)
-    }
+    ...mapGetters([
+      'currentPost',
+      'limitedPosts',
+    ]),
   },
 
   methods: {
     fetchItem() {
-      return PostService.get(this.$route.params.slug)
-        .then(result => {
-          this.item = result
-        })
-        .catch(err => {
-          this.error = true
-        })
-    },
-    fetchPosts() {
-      return PostService.getAll()
-        .then(result => {
-          this.posts = result
-        })
+      this.$store.dispatch('getPost', this.$route.params.slug)
     }
   }
 

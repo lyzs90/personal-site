@@ -9,4 +9,10 @@ module.exports = {
     const iterations = Math.ceil(items.length / styles.length);
     return flatMap(times(iterations, () => styles));
   },
+
+  delay(t) {
+    return new Promise(resolve => {
+      setTimeout(resolve, t);
+    });
+  },
 };

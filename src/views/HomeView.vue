@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div v-if="!navigation">
     <div class="dn flex-ns flex-column-ns justify-center h1 h-75-ns indent center br3 mw-100 bg-top mt5-ns">
-      <div class="nest-bg self-center z-999">
+      <img class="o-50 vh-75-ns" :src="backgroundImage" />
+      <div class="absolute self-center">
         <h1 class="f1">
           <mark class="dib lh-0 pb4 o-90 dark-gray">Shem Leong</mark>
         </h1>
         <h3 class="f3 white-80 tc">Full-stack Developer</h3>
       </div>
-      <!--<img class="o-70 vh-75-ns" :src="backgroundImage" />-->
     </div>
-    <div class="flex flex-column pt6 indent center mw-85">
-      <h1 class="dn db-ns pa2 self-center">Portfolio</h1>
+    <div class="flex flex-column pt5 indent center mw-85">
+      <h1 class="dn db-ns pa2 self-center">My Work</h1>
       <div class="Row">
         <post v-if="items.length > 0" v-for="item in items" :item="item" v-bind:key="item.slug">
         </post>
@@ -25,7 +25,9 @@
 <script>
 
 import path from 'path'
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
+
+import { delay } from '../services/UtilsService'
 
 const Post = () => import(
   /* webpackChunkName: "below-fold" */ '../components/Post.vue'
@@ -42,13 +44,18 @@ export default {
   },
 
   created() {
-    return this.getAllPosts()
+    return delay(this.delay)
+      .then(this.getAllPosts)
       .then(() => {
         this.isLoading = false
       })
   },
 
   computed: {
+    ...mapState([
+      'navigation',
+      'delay',
+    ]),
     ...mapGetters({
       items: 'allPosts',
     }),
@@ -71,13 +78,6 @@ export default {
 
 .lh-0
   line-height: 0
-
-.nest-bg:after
-  content: ''
-  height: 75vh
-  opacity: .7
-  background: url(../static/bg.jpg)
-
 
 @media only screen and (min-width: 640px)
   .vh-95-ns

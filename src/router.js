@@ -16,7 +16,7 @@ export default new VueRouter({
     { name: 'home', path: '/', component: HomeView },
     { name: 'post', path: '/post/:slug', component: PostView },
     { name: 'page', path: '/page/:slug', component: PageView },
-    { path: '*', component: NotFoundView },
+    { path: '*', redirect: NotFoundView },
   ],
   scrollBehavior() {
     return { x: 0, y: 0 };

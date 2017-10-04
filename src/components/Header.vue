@@ -50,23 +50,34 @@
 <script>
 
 import { orderBy } from 'lodash'
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 
-import PageService from '../services/PageService'
+import { delay } from '../services/UtilsService'
 
 export default {
 
   data() {
     return {
-      items: [],
-      navigation: false
+      isLoading: true,
     }
   },
 
   created() {
-    this.fetchItems()
+    return delay(this.delay)
+      .then(this.getAllPages)
+      .then(() => {
+        this.isLoading = false
+      })
   },
 
   computed: {
+    ...mapState([
+      'navigation',
+      'delay',
+    ]),
+    ...mapGetters({
+      items: 'allPages',
+    }),
     orderedPages() {
       return orderBy(this.items, 'slug')
     },
@@ -76,15 +87,12 @@ export default {
   },
 
   methods: {
-    fetchItems() {
-      return PageService.getAll()
-        .then(result => {
-          this.items = result
-        })
-    },
-    toggleNavigation() {
-      this.navigation = !this.navigation
-    }
+    ...mapMutations({
+      toggleNavigation: 'TOGGLE_NAVIGATION',
+    }),
+    ...mapActions([
+      'getAllPages'
+    ]),
   }
 
 }

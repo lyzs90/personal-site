@@ -80,6 +80,14 @@
       .pipe(clean());
   });
 
+  /** Copy index.html to 404.html after Build */
+  gulp.task('copy', ['webpack:build'], () => {
+    return gulp
+      .src(`${otherPaths.distPath}/index.html`)
+      .pipe(rename('404.html'))
+      .pipe(gulp.dest(`${otherPaths.distPath}`));
+  });
+
   /*
   |-----------------------------------------------------------------------------
   | Webpack
@@ -150,7 +158,7 @@
 
   /** Build Task */
 
-  gulp.task('default', ['styles', 'webpack:build']);
+  gulp.task('default', ['styles', 'webpack:build', 'copy']);
 
   gulp.task('dev', ['styles', 'webpack']);
 

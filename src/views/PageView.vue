@@ -9,35 +9,19 @@
       </div>
     </div>
     <!-- Main -->
-    <div class="pt5 indent center mw-85" v-if="item.content">
+    <div class="pt6 indent center mw-85" v-if="currentPage">
       <div class="Row">
-        <div class="ColumnSeventy">
-          <article class="PageSingle">
-            <figure class="BlogPostSingle__images" v-if="item.image">
-              <img :src="item.image.source_url">
-            </figure>
-            <header class="BlogPostSingle__header">
-              <h1>{{ item.title }}</h1>
-            </header>
-            <aside class="BlogPostSingle__content">
-              <div v-html="item.content"></div>
-            </aside>
-          </article>
-        </div>
-        <div class="ColumnQuarter">
-          <aside class="SidebarItem">
-            <header class="SidebarItem__header">
-              <h3>Latest Posts</h3>
-            </header>
-            <ul>
-              <li v-for="post in limitedPosts" v-bind:key="post.slug">
-                <router-link :to="{ name: 'post', params: { id: post.slug } }">
-                  {{ post.title }}
-                </router-link>
-              </li>
-            </ul>
+        <article class="PageSingle">
+          <figure class="BlogPostSingle__images" v-if="currentPage.image">
+            <img :src="currentPage.image.source_url">
+          </figure>
+          <header class="BlogPostSingle__header">
+            <h1>{{ currentPage.title }}</h1>
+          </header>
+          <aside class="BlogPostSingle__content">
+            <div v-html="currentPage.content"></div>
           </aside>
-        </div>
+        </article>
       </div>
     </div>
   </div>
@@ -45,28 +29,24 @@
 
 <script>
 
-import PageService from '../services/PageService'
-import PostService from '../services/PostService'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
 
   data() {
     return {
-      item: [],
-      posts: [],
       error: false
     }
   },
 
   created() {
     this.fetchItem()
-    this.fetchPosts()
   },
 
   computed: {
-    limitedPosts() {
-      return this.posts.splice(0, 5)
-    }
+    ...mapGetters([
+      'currentPage',
+    ]),
   },
 
   watch: {
@@ -75,19 +55,7 @@ export default {
 
   methods: {
     fetchItem() {
-      return PageService.get(this.$route.params.slug)
-        .then(result => {
-          this.item = result
-        })
-        .catch(err => {
-          this.error = true
-        })
-    },
-    fetchPosts() {
-      return PostService.getAll()
-        .then(result => {
-          this.posts = result
-        })
+      this.$store.dispatch('getPage', this.$route.params.slug)
     }
   }
 

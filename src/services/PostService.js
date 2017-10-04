@@ -46,7 +46,7 @@ const data = [
 export default {
   get(slug) {
     return new Promise(resolve => {
-      const item = filter(data, d => d.slug === slug);
+      const [item] = filter(data, d => d.slug === slug);
       resolve(item);
     });
   },
