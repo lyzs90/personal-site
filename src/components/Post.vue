@@ -24,7 +24,7 @@ export default {
 
   data() {
     return {
-      colors: ['#00FBBE', '#F8F8F8', '#E0E0E0', '#DFC360', '#F1F1F1', '#61F8E9', '#F8F8F8', '#E0E0E0', '#252424'],
+      colors: ['#00FBBE', '#F8F8F8', '#E0E0E0', '#61F8E9', '#F1F1F1', '#252424', '#F8F8F8', '#E0E0E0', '#DFC360'],
 
       widths: ['w-third-ns', 'w-two-thirds-ns', 'w-100-ns', 'w-two-thirds-ns', 'w-third-ns', 'w-100-ns']
     }

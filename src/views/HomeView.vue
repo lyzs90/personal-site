@@ -1,12 +1,12 @@
 <template>
-  <div v-if="!navigation">
-    <div class="dn flex-ns flex-column-ns justify-center h1 h-75-ns indent center br3 mw-100 bg-top mt5-ns">
-      <img class="o-50 vh-75-ns" :src="backgroundImage" />
+  <div v-show="!navigation">
+    <div class="flex flex-column justify-center h-75 indent center br3 mw-100 bg-top mt5">
+      <img class="o-70 vh-75" :src="backgroundImage" />
       <div class="absolute self-center">
         <h1 class="f1">
           <mark class="dib lh-0 pb4 o-90 dark-gray">Shem Leong</mark>
         </h1>
-        <h3 class="f3 white-80 tc">Full-stack Developer</h3>
+        <h3 class="f3 white-90 tc">Full-stack Developer</h3>
       </div>
     </div>
     <div class="flex flex-column pt5 indent center mw-85">
@@ -75,6 +75,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
+mark
+  background: #F8F8F8
 
 .lh-0
   line-height: 0

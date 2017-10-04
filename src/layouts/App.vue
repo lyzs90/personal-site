@@ -106,12 +106,12 @@ button
     color: #fff
 
 .view
-  transition: opacity .5s ease-in-out
+  transition: opacity .3s ease-in-out
   flex: 1
   min-height: 100vh
 
 .fade-enter-active
-  transition: opacity 0.5s
+  transition: opacity .3s
 
 .fade-leave-active
   @extend .fade-enter-active

@@ -29,11 +29,11 @@
 
     <!-- Mobile Nav Wrap -->
     <transition name="fade">
-      <div class="mt4 w-100 z-999 vh-100 self-end-ns fixed db bg-primary ease-all" v-if="navigation">
+      <div class="mt5 w-100 vh-100 bg-primary" v-if="navigation">
         <div class="indent center mw-85">
 
           <ul class="list pa2 tc">
-            <li v-for="page in orderedPages" v-bind:key="page.slug" class="pa2 f3 f1-ns">
+            <li v-for="page in orderedPages" v-bind:key="page.slug" class="mt3 pa2 f3 f1-ns">
               <router-link :to="{ name: 'page', params: { slug: page.slug } }" @click.native="toggleNavigation" class="white ttu">
                 {{ page.title }}
               </router-link>
@@ -101,11 +101,11 @@ export default {
 
 <style lang="stylus" scoped>
 
-.mt4
-  margin-top: 4.8rem
+.mt5
+  margin-top: 5.4rem
 
 .ease-all
-  transition: all 0.5s ease-in-out
+  transition: all .3s ease-in-out
 
 .fa
   cursor: pointer
