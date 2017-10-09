@@ -41,7 +41,7 @@
 <script>
 
 import { orderBy } from 'lodash'
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 
 import { delay } from '../services/UtilsService'
 import Navigation from '../components/Navigation.vue'
@@ -84,6 +84,9 @@ export default {
     ...mapActions([
       'getAllPages'
     ]),
+    ...mapMutations({
+      toggleNavigation: 'TOGGLE_NAVIGATION',
+    }),
   }
 
 }
