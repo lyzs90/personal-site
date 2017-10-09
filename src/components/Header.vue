@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-column">
-    <header class="w-100 pa3 z-999 fixed ease-all" :class="{ 'bg-primary': navigation, 'bg-white-90': !navigation }">
+  <div class="flex flex-column ease-all" :class="{ 'bg-primary': navigation }">
+    <header class="w-100 pa3 z-999 fixed" :class="{ 'bg-white-90': !navigation }">
       <div class="indent center mw-85 flex justify-between items-center">
         <!-- Title -->
         <h2>
@@ -12,24 +12,15 @@
           </router-link>
         </h2>
 
-        <!-- Search & Nav -->
-        <div class="flex justify-end">
-          <ul class="list">
-            <li>
-              <a @click="toggleNavigation">
-                <span class="primary fa fa-2x fa-bars" v-if="!navigation"></span>
-                <span class="white-90 fa fa-2x fa-close" v-if="navigation"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <!-- Nav -->
+        <navigation></navigation>
 
       </div>
     </header>
 
-    <!-- Mobile Nav Wrap -->
+    <!-- Nav Wrap -->
     <transition name="fade">
-      <div class="mt5 w-100 vh-100 bg-primary" v-if="navigation">
+      <div class="mt5 w-100 vh-100" v-if="navigation">
         <div class="indent center mw-85">
 
           <ul class="list pa2 tc">
@@ -50,11 +41,14 @@
 <script>
 
 import { orderBy } from 'lodash'
-import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import { delay } from '../services/UtilsService'
+import Navigation from '../components/Navigation.vue'
 
 export default {
+
+  components: { Navigation },
 
   data() {
     return {
@@ -87,9 +81,6 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      toggleNavigation: 'TOGGLE_NAVIGATION',
-    }),
     ...mapActions([
       'getAllPages'
     ]),
