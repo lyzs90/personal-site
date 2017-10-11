@@ -5,7 +5,8 @@ const data = [
     id: 1,
     slug: 'about-me',
     title: 'About Me',
-    content: '',
+    content:
+      'am a data analytics professional with a passion for learning. My interests range from data science to web development to design. Outside of work, I am a huge foodie who enjoys being the kitchen no less than being at the dining table.',
     image: {
       source_url: '',
     },

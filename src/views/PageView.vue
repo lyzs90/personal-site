@@ -11,15 +11,16 @@
     <!-- Main -->
     <div class="pt6 indent center mw-85" v-if="currentPage">
       <div class="Row">
-        <article class="PageSingle">
-          <figure class="BlogPostSingle__images" v-if="currentPage.image">
+        <article class="">
+          <figure class="" v-if="currentPage.image">
             <img :src="currentPage.image.source_url">
           </figure>
-          <header class="BlogPostSingle__header">
+          <header class="">
             <h1>{{ currentPage.title }}</h1>
           </header>
-          <aside class="BlogPostSingle__content">
-            <div v-html="currentPage.content"></div>
+          <aside class="mw7 pa2 flex justify-top">
+            <div class="red f1 lh-5 pa1 pt0 fl">I</div>
+            <div class="no-indent pl1">{{ currentPage.content }}</div>
           </aside>
         </article>
       </div>

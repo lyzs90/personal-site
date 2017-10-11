@@ -42,6 +42,10 @@ $primary = #5C5F61;
   max-width: 85vw;
 }
 
+.no-indent {
+  text-indent: 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

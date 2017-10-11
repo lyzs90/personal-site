@@ -14,14 +14,14 @@
     <div class="pt5 indent center mw-85" v-if="currentPost.content">
       <div class="Row">
         <div class="ColumnSeventy">
-          <article class="BlogPostSingle">
-            <figure class="BlogPostSingle__images" v-if="currentPost">
+          <article class="">
+            <figure class="" v-if="currentPost">
               <img :src="currentPost.source_url">
             </figure>
-            <header class="BlogPostSingle__header">
+            <header class="">
               <h1>{{ currentPost.title }}</h1>
             </header>
-            <aside class="BlogPostSingle__content">
+            <aside class="">
               <div v-html="currentPost.content"></div>
             </aside>
           </article>
