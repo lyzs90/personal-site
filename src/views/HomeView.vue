@@ -83,6 +83,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.f1 {
+  font-size: 5rem;
+}
+
 .lh-0 {
   line-height: 0;
 }

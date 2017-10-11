@@ -63,37 +63,43 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 /**
  * 404
  */
-.Jumbotron
-  padding: 1em 0
-  margin-bottom: 1.5em
-  background: #fff
-  border-bottom: 1px solid #ccc
+.Jumbotron {
+  padding: 1em 0;
+  margin-bottom: 1.5em;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
 
-h3
-  padding: 1em 0
-  margin: 0 auto
+h3 {
+  padding: 1em 0;
+  margin: 0 auto;
+}
 
 /**
  * Main
  */
-.fade-enter-active
-  transition: opacity 0.5s
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
 
-.fade-leave-active
-  @extend .fade-enter-active
+.fade-leave-active {
+  @extend .fade-enter-active;
+}
 
-.fade-enter
-  opacity: 0
+.fade-enter {
+  opacity: 0;
+}
 
-.fade-leave
-  @extend .fade-enter
+.fade-leave {
+  @extend .fade-enter;
+}
 
-@media only screen and (max-width: 640px)
-  .PageSingle
-    margin: 1em 0
-
+@media only screen and (max-width: 640px) {
+  .PageSingle {
+    margin: 1em 0;
+  }
+}
 </style>

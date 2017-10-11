@@ -83,66 +83,88 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 /**
  * 404
  */
-.Jumbotron
-  padding: 1em 0
-  margin-bottom: 1.5em
-  background: #fff
-  border-bottom: 1px solid #ccc
+.Jumbotron {
+  padding: 1em 0;
+  margin-bottom: 1.5em;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
 
-h3
-  padding: 1em 0
-  margin: 0 auto
+h3 {
+  padding: 1em 0;
+  margin: 0 auto;
+}
 
 /**
  * Main
  */
-.BlogPostSingle
-  &__header
-    h1
-      font-size: 4em
-      padding: 0.3em 0
-  &__content
-    color: #444
-    h1, h2, h3, h4, h5, h6
-      padding: 0.3em 0
+.BlogPostSingle {
+  &__header {
+    h1 {
+      font-size: 4em;
+      padding: 0.3em 0;
+    }
+  }
 
-.SidebarItem
-  margin-bottom: 1em
-  &__header
-    background: #fff
-    padding: 1em
-    text-transform: uppercase
-  ul
-    list-style: none
-    margin: 0
-    padding: 0
-    li
-      padding: 1em
-      background: #fefefe
-      border-top: 1px solid #eee
+  &__content {
+    color: #444;
 
+    h1, h2, h3, h4, h5, h6 {
+      padding: 0.3em 0;
+    }
+  }
+}
 
-.fade-enter-active
-  transition: opacity 0.5s
+.SidebarItem {
+  margin-bottom: 1em;
 
-.fade-leave-active
-  @extend .fade-enter-active
+  &__header {
+    background: #fff;
+    padding: 1em;
+    text-transform: uppercase;
+  }
 
-.fade-enter
-  opacity: 0
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-.fade-leave
-  @extend .fade-enter
+    li {
+      padding: 1em;
+      background: #fefefe;
+      border-top: 1px solid #eee;
+    }
+  }
+}
 
-@media only screen and (max-width: 640px)
-  .BlogPostSingle
-    margin: 1em 0
-    &__header
-      h1
-        font-size: 2.5em
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
 
+.fade-leave-active {
+  @extend .fade-enter-active;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-leave {
+  @extend .fade-enter;
+}
+
+@media only screen and (max-width: 640px) {
+  .BlogPostSingle {
+    margin: 1em 0;
+
+    &__header {
+      h1 {
+        font-size: 2.5em;
+      }
+    }
+  }
+}
 </style>

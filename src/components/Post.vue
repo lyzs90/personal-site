@@ -67,13 +67,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.flex-grow-2 {
+  flex-grow: 2;
+}
 
-.flex-grow-2
-  flex-grow: 2
-
-@media all and (min-width: 600px)
-
-  .pa1-ns
-    padding: 0.15rem
-
+@media all and (min-width: 600px) {
+  .pa1-ns {
+    padding: 0.15rem;
+  }
+}
 </style>
