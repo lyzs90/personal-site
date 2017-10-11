@@ -1,7 +1,11 @@
 <template>
   <div v-show="!navigation">
     <div class="flex flex-column justify-center h-75 indent center br3 mw-100 bg-top mt5">
-      <img class="o-70 vh-75" :src="backgroundImage" />
+      <video class="dn db-ns 0-80 w-100" autoplay loop>
+        <source :src="backgroundMp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        <source :src="backgroundWebm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+      <img class="dn-ns o-80 vh-95" :src="backgroundImage" alt="background" />
       <div class="absolute self-center">
         <h1 class="f1">
           <mark class="dib lh-0 pb4 o-90 dark-gray">Shem Leong</mark>
@@ -62,6 +66,12 @@ export default {
     backgroundImage() {
       return require('../static/bg.jpg');
     },
+    backgroundMp4() {
+      return require('../static/bg.mp4')
+    },
+    backgroundWebm() {
+      return require('../static/bg.webm')
+    }
   },
 
   methods: {
@@ -75,18 +85,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+mark {
+  background: #F8F8F8;
+}
 
-mark
-  background: #F8F8F8
+.lh-0 {
+  line-height: 0;
+}
 
-.lh-0
-  line-height: 0
-
-@media only screen and (min-width: 640px)
-  .vh-95-ns
-    height: 95vh
-
-  .mt5-ns
-    margin-top: 5.4rem
-
+.vh-95 {
+  height: 95vh;
+}
 </style>

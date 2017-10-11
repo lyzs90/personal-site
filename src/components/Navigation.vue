@@ -25,6 +25,7 @@ export default {
 
   methods: {
     toggleNavigation() {
+	  // TODO: if !navigation, commit and play t1. if navigation, commit and play t2
       this.$store.commit(TOGGLE_NAVIGATION);
 
       const t1 = new TimelineLite();
@@ -37,9 +38,9 @@ export default {
 
       t1.to('#top-bar', 0.5, { x: 0, y: 9, rotation: 180, ease: Power2.easeOut });
 
-      t1.to('#middle-bar', 0.5, { x: 0, y: -9, opacity: 1, ease: Power2.easeOut, onComplete: timelineDone }, "-=0.5");
+      t1.to('#middle-bar', 0.5, { x: 0, y: -9, opacity: 1, ease: Power2.easeOut, onComplete: pause }, "-=0.5");
 
-      function timelineDone() {
+      function pause() {
         t1.pause();
         t1.seek(0);
       }
