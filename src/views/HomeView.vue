@@ -7,10 +7,8 @@
       </video>
       <img class="dn-ns o-80 vh-95" :src="backgroundImage" alt="background" />
       <div class="absolute self-center">
-        <h1 class="f1">
-          <mark class="dib lh-0 pb4 o-90 dark-gray">Shem Leong</mark>
-        </h1>
-        <h3 class="f3 white-90 tc">Full-stack Developer</h3>
+        <h1 class="f1 white">Shem Leong</h1>
+        <h3 class="f3 white-90 tc">Software Engineer</h3>
       </div>
     </div>
     <div class="flex flex-column pt5 indent center mw-85">
@@ -85,10 +83,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-mark {
-  background: #F8F8F8;
-}
-
 .lh-0 {
   line-height: 0;
 }

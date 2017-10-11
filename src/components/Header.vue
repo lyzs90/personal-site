@@ -25,7 +25,7 @@
 
           <ul class="list pa2 tc">
             <li v-for="page in orderedPages" v-bind:key="page.slug" class="mt3 pa2 f3 f1-ns">
-              <router-link :to="{ name: 'page', params: { slug: page.slug } }" @click.native="toggleNavigation" class="white ttu">
+              <router-link :to="{ name: 'page', params: { slug: page.slug } }" @click.native="closeNavigation" class="white ttu">
                 {{ page.title }}
               </router-link>
             </li>
@@ -85,7 +85,7 @@ export default {
       'getAllPages'
     ]),
     ...mapMutations({
-      toggleNavigation: 'TOGGLE_NAVIGATION',
+      closeNavigation: 'CLOSE_NAVIGATION',
     }),
   }
 
@@ -94,17 +94,19 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.mt5 {
+  margin-top: 5.4rem;
+}
 
-.mt5
-  margin-top: 5.4rem
+.ease-all {
+  transition: all 0.3s ease-in-out;
+}
 
-.ease-all
-  transition: all .3s ease-in-out
+.fa {
+  cursor: pointer;
+}
 
-.fa
-  cursor: pointer
-
-.fill-white-90
-  fill: white
-
+.fill-white-90 {
+  fill: white;
+}
 </style>
