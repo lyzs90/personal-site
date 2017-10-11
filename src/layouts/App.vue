@@ -50,7 +50,7 @@ $primary = #5C5F61;
 
 body {
   background: #fff;
-  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-family: 'Arvo', serif;
   font-weight: 300;
   font-size: 0.9em;
   height: 100%;

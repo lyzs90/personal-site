@@ -7,8 +7,8 @@
       </video>
       <img class="dn-ns o-80 vh-95" :src="backgroundImage" alt="background" />
       <div class="absolute self-center">
-        <h1 class="f1 white">Shem Leong</h1>
-        <h3 class="f3 white-90 tc">Software Engineer</h3>
+        <h1 class="f1 f1-ns mt1 mb1 white tc">Shem Leong</h1>
+        <h3 class="f4 f3-ns white-90 tc">Software Engineer</h3>
       </div>
     </div>
     <div class="flex flex-column pt5 indent center mw-85">
@@ -84,7 +84,13 @@ export default {
 
 <style lang="stylus" scoped>
 .f1 {
-  font-size: 5rem;
+  font-size: 3rem;
+}
+
+@media all and (min-width: 600px) {
+  .f1-ns {
+    font-size: 4rem;
+  }
 }
 
 .lh-0 {
