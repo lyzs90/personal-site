@@ -74,17 +74,35 @@
   /** Cleanup Dist-Directories before Build */
   gulp.task('clean', () => {
     return gulp
-      .src([`${otherPaths.distPath}/js/*.jpg`], {
-        read: false,
-      })
+      .src(
+        [
+          `${otherPaths.distPath}/js/*.jpg`,
+          `${otherPaths.distPath}/js/*.js`,
+          `${otherPaths.distPath}/js/*.webm`,
+          `${otherPaths.distPath}/js/*.mp4`,
+          `${otherPaths.distPath}/js/*.json`,
+        ],
+        {
+          read: false,
+        },
+      )
       .pipe(clean());
   });
 
-  /** Copy index.html to 404.html after Build */
+  /** Copy favicons, index.html to 404.html after Build */
+  gulp.task('rename', ['copy'], () => {
+    return gulp
+      .src([
+        `${otherPaths.distPath}/index.html`,
+        `${srcPath}/src/static/favicon.ico`,
+      ])
+      .pipe(rename('404.html'))
+      .pipe(gulp.dest(`${otherPaths.distPath}`));
+  });
+
   gulp.task('copy', ['webpack:build'], () => {
     return gulp
-      .src(`${otherPaths.distPath}/index.html`)
-      .pipe(rename('404.html'))
+      .src([`${srcPath}/src/static/favicon.ico`])
       .pipe(gulp.dest(`${otherPaths.distPath}`));
   });
 

@@ -11,14 +11,17 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 
 export default new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     { name: 'home', path: '/', component: HomeView },
     { name: 'post', path: '/post/:slug', component: PostView },
     { name: 'page', path: '/page/:slug', component: PageView },
     { path: '*', redirect: NotFoundView },
   ],
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
     return { x: 0, y: 0 };
   },
 });

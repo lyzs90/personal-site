@@ -8,7 +8,8 @@ const data = [
     content:
       'An elegant, responsive SPA powered by VueJS and the Wordpress REST v2 API.',
     image: {
-      source_url: '',
+      source_url:
+        'https://github.com/lyzs90/vuewp/raw/master/wp-content/themes/vuewp/screenshot.png',
     },
   },
   {
@@ -18,7 +19,7 @@ const data = [
     content:
       'A food recommendation chatbot for Facebook Messenger. Powered by Node and the Microsoft Bot Framework.',
     image: {
-      source_url: '',
+      source_url: 'https://s1.postimg.org/2q1ucmxfb3/e8t.png',
     },
   },
   {
@@ -28,7 +29,7 @@ const data = [
     content:
       "A React/Redux-based dashboard to track fleet utilization based on a week's worth of car bookings data.",
     image: {
-      source_url: '',
+      source_url: 'https://s24.postimg.org/mjkdv4sad/smove.png',
     },
   },
   {
@@ -38,7 +39,7 @@ const data = [
     content:
       'An Angular/Sails e-commerce app based off the Angular Phone Catalog tutorial.',
     image: {
-      source_url: '',
+      source_url: 'https://gifyu.com/images/ezgif.com-video-to-gif549d2.gif',
     },
   },
 ];

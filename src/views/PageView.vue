@@ -18,9 +18,8 @@
           <header class="">
             <h1>{{ currentPage.title }}</h1>
           </header>
-          <aside class="mw7 pa2 flex justify-top">
-            <div class="red f1 lh-5 pa1 pt0 fl">I</div>
-            <div class="no-indent pl1">{{ currentPage.content }}</div>
+          <aside class="mw7 pa2">
+            <div v-html="currentPage.content" class="no-indent"></div>
           </aside>
         </article>
       </div>

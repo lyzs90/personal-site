@@ -15,18 +15,18 @@
       <div class="Row">
         <div class="ColumnSeventy">
           <article class="">
-            <figure class="" v-if="currentPost">
-              <img :src="currentPost.source_url">
-            </figure>
-            <header class="">
+            <header class="ml3 no-indent">
               <h1>{{ currentPost.title }}</h1>
             </header>
-            <aside class="">
-              <div v-html="currentPost.content"></div>
+            <aside class="pa4 pl0">
+              <div class="ml3 no-indent" v-html="currentPost.content"></div>
             </aside>
+            <figure class="ml3 mw6" v-if="currentPost.image">
+              <img :src="currentPost.image.source_url">
+            </figure>
           </article>
         </div>
-        <div class="ColumnQuarter">
+        <div class="dn db-ns ColumnQuarter">
           <aside class="SidebarItem">
             <header class="SidebarItem__header">
               <h3>My Work</h3>
@@ -101,23 +101,6 @@ h3 {
 /**
  * Main
  */
-.BlogPostSingle {
-  &__header {
-    h1 {
-      font-size: 4em;
-      padding: 0.3em 0;
-    }
-  }
-
-  &__content {
-    color: #444;
-
-    h1, h2, h3, h4, h5, h6 {
-      padding: 0.3em 0;
-    }
-  }
-}
-
 .SidebarItem {
   margin-bottom: 1em;
 
@@ -136,34 +119,6 @@ h3 {
       padding: 1em;
       background: #fefefe;
       border-top: 1px solid #eee;
-    }
-  }
-}
-
-.fade-enter-active {
-  transition: opacity 0.5s;
-}
-
-.fade-leave-active {
-  @extend .fade-enter-active;
-}
-
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-leave {
-  @extend .fade-enter;
-}
-
-@media only screen and (max-width: 640px) {
-  .BlogPostSingle {
-    margin: 1em 0;
-
-    &__header {
-      h1 {
-        font-size: 2.5em;
-      }
     }
   }
 }

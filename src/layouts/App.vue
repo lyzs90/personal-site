@@ -25,9 +25,14 @@ export default {
 
 <style lang="stylus">
 $primary = #5C5F61;
+$accent = #00FBBE;
 
 .primary {
   color: $primary;
+}
+
+.accent {
+  color: $accent;
 }
 
 .bg-primary {
@@ -62,6 +67,7 @@ body {
 }
 
 a {
+  color: $accent;
   text-decoration: none;
 }
 
