@@ -90,16 +90,6 @@
   });
 
   /** Copy favicons, index.html to 404.html after Build */
-  gulp.task('rename', ['copy'], () => {
-    return gulp
-      .src([
-        `${otherPaths.distPath}/index.html`,
-        `${srcPath}/src/static/favicon.ico`,
-      ])
-      .pipe(rename('404.html'))
-      .pipe(gulp.dest(`${otherPaths.distPath}`));
-  });
-
   gulp.task('copy', ['webpack:build'], () => {
     return gulp
       .src([`${srcPath}/src/static/favicon.ico`])

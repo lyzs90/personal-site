@@ -1,5 +1,5 @@
 # Personal Site
-Built using VueJS.
+Source code for my personal site.
 
 ### Development
 - `npm run dev`
