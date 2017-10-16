@@ -19,7 +19,7 @@
             <h1>{{ currentPage.title }}</h1>
           </header>
           <aside class="mw7 pa2">
-            <div v-html="currentPage.content" class="no-indent"></div>
+            <div v-html="currentPage.content" class="no-indent tj"></div>
           </aside>
         </article>
       </div>

@@ -8,7 +8,7 @@
       <img class="dn-ns o-80 vh-95" :src="backgroundImage" alt="background" />
       <div class="absolute self-center">
         <h1 class="f1 f1-ns mt1 mb1 white tc">Shem Leong</h1>
-        <h3 class="f4 f3-ns white-90 tc">Software Engineer</h3>
+        <h3 class="f4 f3-ns white-90 tc">Full-stack Developer</h3>
       </div>
     </div>
     <div class="flex flex-column pt5 indent center mw-85">

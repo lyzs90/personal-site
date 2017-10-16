@@ -61,7 +61,7 @@ body {
   background: #fff;
   font-family: 'Arvo', serif;
   font-weight: 300;
-  font-size: 0.9em;
+  font-size: 1em;
   height: 100%;
   overflow-x: hidden;
 }
