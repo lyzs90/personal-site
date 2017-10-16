@@ -6,7 +6,7 @@ const data = [
     slug: 'vuewp',
     title: 'vuewp',
     content:
-      'An elegant, responsive SPA powered by VueJS and the Wordpress REST v2 API.',
+      'A Wordpress Theme / SPA hybrid powered by VueJS and the Wordpress REST v2 API.',
     image: {
       source_url:
         'https://github.com/lyzs90/vuewp/raw/master/wp-content/themes/vuewp/screenshot.png',

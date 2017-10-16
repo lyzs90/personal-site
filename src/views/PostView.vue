@@ -2,18 +2,18 @@
   <div>
 
     <!-- 404 -->
-    <div class="Jumbotron" v-if="error">
+    <div class="pt1 pb1 mb1 bg-white bb b--gray" v-if="error">
       <div class="pt5 indent center mw-85">
-        <div class="Row items-center">
-          <h3>Page not found...</h3>
+        <div class="flex flex-wrap items-center">
+          <h3 class="center no-indent pt1 pb1">Page not found...</h3>
         </div>
       </div>
     </div>
 
     <!-- Main -->
     <div class="pt5 indent center mw-85" v-if="currentPost.content">
-      <div class="Row">
-        <div class="ColumnSeventy">
+      <div class="flex flex-wrap">
+        <div class="w-70-ns pa2">
           <article class="">
             <header class="ml3 no-indent">
               <h1>{{ currentPost.title }}</h1>
@@ -22,11 +22,11 @@
               <div class="ml3 no-indent" v-html="currentPost.content"></div>
             </aside>
             <figure class="ml3 mw6" v-if="currentPost.image">
-              <img :src="currentPost.image.source_url">
+              <img :src="currentPost.image.source_url" class="db w-100">
             </figure>
           </article>
         </div>
-        <div class="dn db-ns ColumnQuarter">
+        <div class="dn db-ns w-25-ns pa2">
           <aside class="SidebarItem">
             <header class="SidebarItem__header">
               <h3>My Work</h3>
@@ -83,24 +83,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-/**
- * 404
- */
-.Jumbotron {
-  padding: 1em 0;
-  margin-bottom: 1.5em;
-  background: #fff;
-  border-bottom: 1px solid #ccc;
-}
-
-h3 {
-  padding: 1em 0;
-  margin: 0 auto;
-}
-
-/**
- * Main
- */
 .SidebarItem {
   margin-bottom: 1em;
 
