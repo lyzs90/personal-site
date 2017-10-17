@@ -5,7 +5,7 @@
         <source :src="backgroundMp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
         <source :src="backgroundWebm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
       </video>
-      <img class="dn-ns o-80 vh-60" :src="backgroundImage" alt="background" />
+      <img class="dn-ns o-80 vh-65" :src="backgroundImage" alt="background" />
       <div class="absolute self-center">
         <h1 class="f1 f1-ns mt1 mb1 white tc">Shem Leong</h1>
         <h3 class="f4 f3-ns white-90 tc">Full-stack Developer</h3>
@@ -97,7 +97,7 @@ export default {
   line-height: 0;
 }
 
-.vh-60 {
-  height: 60vh;
+.vh-65 {
+  height: 65vh;
 }
 </style>

@@ -1,13 +1,15 @@
 <template>
   <div class="mw-100 pa3 pa1-ns vh-50-ns" :class="widthNs">
-    <router-link :to="{ name: 'post', params: { slug: item.slug } }" class="flex flex-column justify-center-ns cover 0-90 br2 h-100-ns grow" :style="{ 'background-color': color }">
-      <header class="flex items-center pa3 self-center-ns">
-        <h2 class="dark-gray tc pa1">{{ trimTitle }}</h2>
-      </header>
-      <div class="pa4 gray f5 tc">
-        {{ item.content }}
-      </div>
-    </router-link>
+    <v-touch class="post-element h-100-ns" v-on:swipeup="swipeupHandler" v-on:pandown="pandownHandler" v-on:panup="panupHandler">
+      <router-link :to="{ name: 'post', params: { slug: item.slug } }" class="flex flex-column justify-center-ns cover 0-90 br2 h-100-ns grow" :style="{ 'background-color': color }">
+        <header class="flex items-center pa3 self-center-ns">
+          <h2 class="dark-gray tc pa1">{{ trimTitle }}</h2>
+        </header>
+        <div class="pa4 gray f5 tc">
+          {{ item.content }}
+        </div>
+      </router-link>
+    </v-touch>
   </div>
 </template>
 
@@ -15,6 +17,7 @@
 
 import { findIndex } from 'lodash'
 import { mapGetters } from 'vuex'
+import { Bounce, TimelineLite } from 'gsap';
 
 import { mapStyles } from '../services/UtilsService'
 
@@ -60,6 +63,30 @@ export default {
     ...mapGetters({
       items: 'allPosts'
     }),
+  },
+
+  methods: {
+    panupHandler() {
+      scroll(0, scrollY + 40);
+    },
+
+    pandownHandler() {
+      scroll(0, scrollY - 40);
+    },
+
+    swipeupHandler() {
+      const t1 = new TimelineLite();
+
+      t1.to('.post-element', 0.5, {
+        scaleY: 1.1,
+        ease: Bounce.easeOut,
+      });
+
+      t1.to('.post-element', 0.5, {
+        scaleY: 1,
+        ease: Bounce.easeOut,
+      });
+    },
   }
 
 }
