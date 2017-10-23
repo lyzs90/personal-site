@@ -44,6 +44,15 @@ const data = [
   },
   {
     id: 5,
+    slug: 'pomodoro',
+    title: 'react-pomodoro',
+    content: 'A React/Redux implementation of the Pomodoro timer.',
+    image: {
+      source_url: 'https://s1.postimg.org/98wwov31xr/screenshot.png',
+    },
+  },
+  {
+    id: 6,
     slug: 'this',
     title: 'this',
     content: "You're looking at it ¯_(ツ)_/¯",

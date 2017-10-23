@@ -14,55 +14,69 @@
 </template>
 
 <script>
+import { findIndex } from "lodash";
+import { mapGetters } from "vuex";
+import { Bounce, TimelineLite } from "gsap";
 
-import { findIndex } from 'lodash'
-import { mapGetters } from 'vuex'
-import { Bounce, TimelineLite } from 'gsap';
-
-import { mapStyles } from '../services/UtilsService'
+import { mapStyles } from "../services/UtilsService";
 
 export default {
-
-  props: ['item'],
+  props: ["item"],
 
   data() {
     return {
-      colors: ['#00FBBE', '#F8F8F8', '#E0E0E0', '#61F8E9', '#252424', '#F8F8F8', '#E0E0E0', '#DFC360'],
+      colors: [
+        "#00FBBE",
+        "#F8F8F8",
+        "#E0E0E0",
+        "#61F8E9",
+        "#F8F8F8",
+        "#252424",
+        "#E0E0E0",
+        "#DFC360"
+      ],
 
-      widths: ['w-third-ns', 'w-two-thirds-ns', 'w-100-ns', 'w-two-thirds-ns', 'w-third-ns', 'w-100-ns']
-    }
+      widths: [
+        "w-third-ns",
+        "w-two-thirds-ns",
+        "w-100-ns",
+        "w-two-thirds-ns",
+        "w-third-ns",
+        "w-100-ns"
+      ]
+    };
   },
 
   computed: {
     trimTitle() {
       if (this.item.title.length < 34) {
-        return this.item.title
+        return this.item.title;
       } else {
-        return this.item.title.substring(0, 35) + '...'
+        return this.item.title.substring(0, 35) + "...";
       }
     },
 
     trimExcerpt() {
-      return this.item.excerpt.substring(3, 110) + '...'
+      return this.item.excerpt.substring(3, 110) + "...";
     },
 
     color() {
-      const colorsArray = mapStyles(this.items)(this.colors)
-      const itemIndex = findIndex(this.items, { 'id': this.item.id })
+      const colorsArray = mapStyles(this.items)(this.colors);
+      const itemIndex = findIndex(this.items, { id: this.item.id });
 
-      return colorsArray[itemIndex]
+      return colorsArray[itemIndex];
     },
 
     widthNs() {
-      const widthsArray = mapStyles(this.items)(this.widths)
-      const itemIndex = findIndex(this.items, { 'id': this.item.id })
+      const widthsArray = mapStyles(this.items)(this.widths);
+      const itemIndex = findIndex(this.items, { id: this.item.id });
 
-      return widthsArray[itemIndex]
+      return widthsArray[itemIndex];
     },
 
     ...mapGetters({
-      items: 'allPosts'
-    }),
+      items: "allPosts"
+    })
   },
 
   methods: {
@@ -77,20 +91,18 @@ export default {
     swipeupHandler() {
       const t1 = new TimelineLite();
 
-      t1.to('.post-element', 0.5, {
+      t1.to(".post-element", 0.5, {
         scaleY: 1.1,
-        ease: Bounce.easeOut,
+        ease: Bounce.easeOut
       });
 
-      t1.to('.post-element', 0.5, {
+      t1.to(".post-element", 0.5, {
         scaleY: 1,
-        ease: Bounce.easeOut,
+        ease: Bounce.easeOut
       });
-    },
+    }
   }
-
-}
-
+};
 </script>
 
 <style lang="stylus" scoped>
