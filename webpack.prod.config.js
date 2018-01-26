@@ -32,7 +32,7 @@ module.exports = {
         loader: 'vue-loader',
       },
       {
-        test: /\.(png|jpg|gif|svg|mp4|webm)$/,
+        test: /\.(png|jpg|gif|svg|mp4|webm|webp)$/,
         use: [
           {
             loader: 'url-loader',

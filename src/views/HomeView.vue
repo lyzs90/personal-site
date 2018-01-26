@@ -2,8 +2,8 @@
   <div v-show="!navigation">
     <div class="flex flex-column justify-center h-75 indent center br3 mw-100 bg-top mt5">
       <video class="dn db-ns w-100" autoplay loop>
+		<source :src="backgroundWebm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
         <source :src="backgroundMp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-        <source :src="backgroundWebm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
       </video>
       <img class="dn-ns o-80 vh-65" :src="backgroundImage" alt="background" />
       <div class="absolute self-center">
@@ -62,7 +62,7 @@ export default {
       items: 'allPosts',
     }),
     backgroundImage() {
-      return require('../static/bg.jpg');
+      return require('../static/bg.webp');
     },
     backgroundMp4() {
       return require('../static/bg.mp4')
