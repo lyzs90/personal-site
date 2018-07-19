@@ -19,7 +19,7 @@ const data = [
     content:
       'A food recommendation chatbot for Facebook Messenger. Powered by Node and the Microsoft Bot Framework.',
     image: {
-      source_url: 'https://s1.postimg.org/2q1ucmxfb3/e8t.png',
+      source_url: 'https://s22.postimg.cc/wn0a30kox/e8t.png',
     },
   },
   {

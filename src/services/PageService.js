@@ -16,7 +16,7 @@ const data = [
     slug: 'experience',
     title: 'Work Experience',
     content:
-      '<ul class="pa3 pl4"><li class="pa2">Software Engineer @ <a href="https://www.smove.sg/">smove</a>, May 2017 - Present</li><li class="pa2">BI & Data Analyst @ <a href="http://www.agd.gov.sg/">AGD</a>, Feb 2016 - May 2017</li><li class="pa2">Data Analyst @ <a href="https://www.caas.gov.sg/">CAAS</a>, Jul 2014 - Feb 2016</li></ul><div class="pt2 pb2"></div><p class="pl3">You can find my detailed resume <a href="https://standardresume.co/shemleong">here</a></p>',
+      '<ul class="pa3 pl4"><li class="pa2">Freelance Developer @ <a href="https://trypencil.com/">Pencil</a>, March 2018 - Present</li><li class="pa2">Software Engineer @ <a href="https://www.smove.sg/">smove</a>, May 2017 - July 2018</li><li class="pa2">BI & Data Analyst @ <a href="http://www.agd.gov.sg/">AGD</a>, Feb 2016 - May 2017</li><li class="pa2">Data Analyst @ <a href="https://www.caas.gov.sg/">CAAS</a>, Jul 2014 - Feb 2016</li></ul><div class="pt2 pb2"></div><p class="pl3">You can find my detailed resume <a href="https://standardresume.co/shemleong">here</a></p>',
     image: {
       source_url: '',
     },
